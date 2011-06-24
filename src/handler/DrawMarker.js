@@ -19,7 +19,7 @@ L.Handler.DrawMarker = L.Handler.extend({
 	},
 	_onClick: function(e) {
 		var marker = new L.Marker(e.latlng, this.options.markerOptions),
-			layerGroup = this.options.layerGroup;
+                    layerGroup = this.options.layerGroup;
 		if(layerGroup) {
 			this.options.layerGroup.addLayer(marker)
 		} else {
