@@ -12,7 +12,6 @@ L.Handler.DrawMarker = L.Handler.extend({
 		this._map.on('click', this._onClick, this);
 		this._enabled = true;
 	},
-
 	disable: function() {
 		if (!this._enabled) { return; }
 		this._map.off('click', this._onClick, this);
@@ -21,7 +20,6 @@ L.Handler.DrawMarker = L.Handler.extend({
 	_onClick: function(e) {
 		var marker = new L.Marker(e.latlng, this.options.markerOptions),
 		layerGroup = this.options.layerGroup;
-
 		if(layerGroup) {
 			this.options.layerGroup.addLayer(marker)
 		} else {
