@@ -97,7 +97,10 @@ L.Polyline = L.Path.extend({
 	_simplifyPoints: function() {
 		var parts = this._parts,
 			lu = L.LineUtil;
-		
+
+        if(this.options.noSimplify) {
+            return;
+        }
 		for (var i = 0, len = parts.length; i < len; i++) {
 			parts[i] = lu.simplify(parts[i], this.options.smoothFactor);
 		}

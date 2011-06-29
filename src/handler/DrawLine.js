@@ -26,7 +26,7 @@ L.Handler.DrawLine = L.Handler.extend({
 			layerGroup = this.options.layerGroup,
 			tempMarkers = this._tempMarkers;	
 		if(!this._line) {
-			this._line = new L.Polyline([e.latlng]);
+			this._line = new L.Polyline([e.latlng], {noSimplify: true});
 			if(layerGroup) {
 				this.options.layerGroup.addLayer(this._line)
 			} else {
