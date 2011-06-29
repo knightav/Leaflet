@@ -72,6 +72,8 @@
 		'handler/ScrollWheelZoom.js',
 		'handler/ShiftDragZoom.js',
 		'handler/MarkerDrag.js',
+		'handler/DrawMarker.js',
+		'handler/DrawLine.js',
 		
 		'control/Control.js',
 		'control/Control.Zoom.js',
