@@ -12,8 +12,9 @@
 </head>
 <body>
 
-	<div id="map" style="width: 600px; height: 600px; border: 1px solid #ccc"></div>
-	<button id="populate">Populate with 10 markers</button>
+        <div id="map" style="width: 600px; height: 600px; border: 1px solid #ccc"></div>
+
+
 
 	<script type="text/javascript">
 
@@ -26,10 +27,32 @@
 		
 		var markers = new L.FeatureGroup();
 		
-		var draw = new L.Handler.DrawLine(map);
-		draw.enable();
+		var draw;
+
+        function changeTool(tool) {
+            if(draw) {
+                draw.disable();
+            }
+            switch(tool) {
+                case 'pan':
+                    break;
+                case 'point':
+                    draw = new L.Handler.DrawMarker(map);
+                    draw.enable();
+                    break;
+                case 'line':
+                    draw = new L.Handler.DrawLine(map);
+                    draw.enable();
+                    break;
+            }
+        }
 		
-		
-	</script>
+    </script>
+
+        <form>
+            <input type="radio" name="draw" value="pan" onclick=changeTool('pan') checked>Pan</input>
+            <input type="radio" name="draw" value="point" onclick=changeTool('point')>Point</input>
+            <input type="radio" name="draw" value="line" onclick=changeTool('line')>Line</input>
+        </form>
 </body>
 </html>
